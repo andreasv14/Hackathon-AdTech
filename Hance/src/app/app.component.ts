@@ -18,13 +18,23 @@ export class AppComponent {
   title = 'Hance';
   isLoginView = false;
   isRegisterView = false;
+  isUserLoggedIn = false;
   userData: UserData = new UserData;
   advertisements: Advertise[] = [];
+  tags: string[] = [];
 
   constructor(private primengConfig: PrimeNGConfig, private router: Router) {}
 
   get getIsLoginView() {
     return this.isLoginView;
+  }
+
+  get getIsRegisterView() {
+    return this.isRegisterView;
+  }
+
+  get getIsUserLoggedIn() {
+    return this.isUserLoggedIn;
   }
 
   ngOnInit() {
@@ -48,13 +58,25 @@ export class AppComponent {
     this.isLoginView = true;
   }
 
+  showRegisterView() {
+    this.isRegisterView = true;
+  }
+
   showHomeView() {
     this.isLoginView = false;
+    this.isRegisterView = false;
   }
 
   login() {
-    console.log(this.userData.email)
-    console.log(this.userData.password)
+    if (this.userData.email == 'admin' || this.userData.password == 'admin') {
+      this.isUserLoggedIn = true;
+      (document.getElementById('notification') as HTMLFormElement).innerHTML="logged in successfully";
+      (document.getElementById('notification') as HTMLFormElement).style.color = "green";
+
+      setTimeout(function(){
+        (document.getElementById('notification') as HTMLFormElement).innerHTML="";
+      },3000);
+    }
   }
 
   onAdvertiseClick(urlSource:string){

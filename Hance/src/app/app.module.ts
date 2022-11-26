@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {CarouselModule} from 'primeng/carousel';
+import { ChipsModule } from "primeng/chips";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {CarouselModule} from 'primeng/carousel';
     FormsModule,
     CheckboxModule,
     ProgressBarModule,
-    CarouselModule
+    CarouselModule,
+    ChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

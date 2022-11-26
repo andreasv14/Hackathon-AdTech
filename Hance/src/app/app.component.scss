@@ -4,3 +4,12 @@
     top: 2%;
     right: 2%;
 }
+
+.overlayClass {
+    width: 295px;
+    max-width: 295px;
+}
+
+::ng-deep .p-overlaypanel .p-overlaypanel-content {
+    max-width: 390px !important;
+}

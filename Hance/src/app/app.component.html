@@ -3,7 +3,7 @@
 
     <button pButton pRipple type="button" (click)="op.show($event)" icon="pi pi-bell" class="bellButton p-button-rounded p-button-warning"></button>
     
-    <p-overlayPanel #op [dismissable]="true" [showCloseIcon]="true">
+    <p-overlayPanel #op [dismissable]="true">
       <ng-template pTemplate>
 
         <!-- Ad Banner -->
@@ -12,7 +12,7 @@
                 <div class="product-item">
                     <div>
                         <div>
-                            <p-image [src]="advertice.imageSource" alt="Image" width="250" (click)="onAdvertiseClick(advertice.url)"></p-image>
+                            <p-image [src]="advertice.imageSource" alt="Image" width="250" (click)="onAdvertiseClick(advertice.url)" class="pb-2" imageClass="border-round-lg"></p-image>
                         </div>
                     </div>
                 </div>
@@ -21,13 +21,20 @@
        
         <br>
 
-        <!-- Buttons -->
-        <div *ngIf="!getIsLoginView" class="pt-1" style="text-align:center">
-          <button pButton pRipple label="Login" (click)="showLoginView()" type="button" class="mr-3 p-button-raised"></button>
-          <button pButton pRipple label="Register" type="button" class="p-button-outlined"></button>
+        <div *ngIf="getIsUserLoggedIn" class="pt-1">
+          
         </div>
 
-        <div class="pt-1 card" *ngIf="getIsLoginView">
+        <p id="notification"></p>
+
+        <!-- Buttons -->
+        <div *ngIf="!getIsUserLoggedIn && !(getIsLoginView || getIsRegisterView)" class="pt-1" style="text-align:center">
+          <button pButton pRipple label="Login" (click)="showLoginView()" type="button" class="mr-3 p-button-raised"></button>
+          <button pButton pRipple label="Register" (click)="showRegisterView()" type="button" class="p-button-outlined"></button>
+        </div>
+
+        <!-- Login View -->
+        <div class="pt-1 card" *ngIf="!getIsUserLoggedIn && getIsLoginView">
           <!-- email -->
           <div class="field p-input-icon-left">
             <i class="pi pi-envelope"></i>
@@ -44,6 +51,33 @@
 
           <div style="text-align:center">
             <button pButton pRipple label="Login" (click)="login()" type="button" class="mr-3 p-button-raised"></button>
+            <button pButton pRipple label="Cancel" (click)="showHomeView()" type="button" class="p-button-outlined"></button>
+          </div>
+        </div>
+
+        <!-- Register View -->
+        <div class="pt-1 card" *ngIf="!getIsUserLoggedIn && getIsRegisterView">
+          <!-- email -->
+          <div class="field p-input-icon-left">
+            <i class="pi pi-envelope"></i>
+            <input type="text" pInputText placeholder="Email" [(ngModel)]="userData.email">
+          </div>
+          <br>
+
+          <!-- password -->
+          <div class="field p-input-icon-left">
+            <i class="pi pi-key"></i>
+            <input type="password" pInputText placeholder="Password" [(ngModel)]="userData.password">
+          </div>
+          <br>
+
+          <label>Tags:</label>
+          <br>
+          <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" styleClass="pt-1 mb-2 flex-column"></p-chips>
+          <br>
+
+          <div style="text-align:center">
+            <button pButton pRipple label="Register" (click)="login()" type="button" class="mr-3 p-button-raised"></button>
             <button pButton pRipple label="Cancel" (click)="showHomeView()" type="button" class="p-button-outlined"></button>
           </div>
         </div>
