@@ -5,14 +5,14 @@
     
     <p-overlayPanel #op [dismissable]="true" [showCloseIcon]="true">
       <ng-template pTemplate>
-        
+
         <!-- Ad Banner -->
         <p-carousel [value]="advertisements">
             <ng-template let-advertice pTemplate="item">
                 <div class="product-item">
                     <div>
                         <div>
-                            <p-image [src]="advertice.imageSource" alt="Image" width="250"></p-image>
+                            <p-image [src]="advertice.imageSource" alt="Image" width="250" (click)="onAdvertiseClick(advertice.url)"></p-image>
                         </div>
                     </div>
                 </div>

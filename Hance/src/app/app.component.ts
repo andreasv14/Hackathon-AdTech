@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { UserData } from './models/userdata';
-  
+import { Router } from '@angular/router';
+
 interface Advertise {
     id?: string;
     imageSource?: string;
@@ -20,7 +21,7 @@ export class AppComponent {
   userData: UserData = new UserData;
   advertisements: Advertise[] = [];
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor(private primengConfig: PrimeNGConfig, private router: Router) {}
 
   get getIsLoginView() {
     return this.isLoginView;
@@ -33,7 +34,7 @@ export class AppComponent {
     {
           id: '1',
           imageSource: '../assets/images/adtech-banner.png',
-          url: 'Racing car',
+          url: 'https://hackathon22.adtechholding.com/',
     },
     {
       id: '2',
@@ -54,6 +55,10 @@ export class AppComponent {
   login() {
     console.log(this.userData.email)
     console.log(this.userData.password)
+  }
+
+  onAdvertiseClick(urlSource:string){
+    window.open(urlSource, '_blank');
   }
 }
 
