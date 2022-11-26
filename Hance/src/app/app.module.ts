@@ -12,6 +12,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ProgressBarModule} from 'primeng/progressbar';
+import {CarouselModule} from 'primeng/carousel';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {ProgressBarModule} from 'primeng/progressbar';
     InputTextModule,
     FormsModule,
     CheckboxModule,
-    ProgressBarModule
+    ProgressBarModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

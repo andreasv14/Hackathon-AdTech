@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { UserData } from './models/userdata';
+  
+interface Advertise {
+    id?: string;
+    imageSource?: string;
+    url?: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -12,6 +18,7 @@ export class AppComponent {
   isLoginView = false;
   isRegisterView = false;
   userData: UserData = new UserData;
+  advertisements: Advertise[] = [];
 
   constructor(private primengConfig: PrimeNGConfig) {}
 
@@ -21,6 +28,19 @@ export class AppComponent {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
+
+    this.advertisements = [
+    {
+          id: '1',
+          imageSource: '../assets/images/adtech-banner.png',
+          url: 'Racing car',
+    },
+    {
+      id: '2',
+      imageSource: '../assets/images/adtech-banner.png',
+      url: 'Racing car',
+    }
+  ];
   }
 
   showLoginView() {
