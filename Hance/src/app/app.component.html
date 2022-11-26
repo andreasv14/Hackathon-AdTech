@@ -5,7 +5,38 @@
     
     <p-overlayPanel #op [dismissable]="true" [showCloseIcon]="true">
       <ng-template pTemplate>
-          Content
+          
+        <!-- Ad Banner -->
+        <p-image src="../assets/images/adtech-banner.png" alt="Image" width="250" class="pb-2"></p-image>
+        <br>
+
+        <!-- Buttons -->
+        <div *ngIf="!getIsLoginView" class="pt-1" style="text-align:center">
+          <button pButton pRipple label="Login" (click)="showLoginView()" type="button" class="mr-3 p-button-raised"></button>
+          <button pButton pRipple label="Register" type="button" class="p-button-outlined"></button>
+        </div>
+
+        <div class="pt-1 card" *ngIf="getIsLoginView">
+          <!-- email -->
+          <div class="field p-input-icon-left">
+            <i class="pi pi-envelope"></i>
+            <input type="text" pInputText placeholder="Email" [(ngModel)]="userData.email">
+          </div>
+          <br>
+
+          <!-- password -->
+          <div class="field p-input-icon-left">
+            <i class="pi pi-key"></i>
+            <input type="password" pInputText placeholder="Password" [(ngModel)]="userData.password">
+          </div>
+          <br>
+
+          <div style="text-align:center">
+            <button pButton pRipple label="Login" (click)="login()" type="button" class="mr-3 p-button-raised"></button>
+            <button pButton pRipple label="Cancel" (click)="showHomeView()" type="button" class="p-button-outlined"></button>
+          </div>
+        </div>
+
       </ng-template>
     </p-overlayPanel>
 

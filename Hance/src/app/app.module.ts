@@ -6,7 +6,9 @@ import {StyleClassModule} from 'primeng/styleclass';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
-
+import {ImageModule} from 'primeng/image';
+import {InputTextModule} from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     StyleClassModule,
     BrowserAnimationsModule,
     ButtonModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    ImageModule,
+    InputTextModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
