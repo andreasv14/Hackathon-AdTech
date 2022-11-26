@@ -5,17 +5,20 @@ import { AppComponent } from './app.component';
 import {StyleClassModule} from 'primeng/styleclass';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StyleClassModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    OverlayPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
