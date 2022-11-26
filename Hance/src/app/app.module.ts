@@ -7,12 +7,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {ImageModule} from 'primeng/image';
+import {CheckboxModule} from 'primeng/checkbox';
 import {InputTextModule} from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import {ProgressBarModule} from 'primeng/progressbar';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     OverlayPanelModule,
     ImageModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    CheckboxModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
