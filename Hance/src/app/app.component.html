@@ -6,24 +6,30 @@
     <p-overlayPanel #op [dismissable]="true">
       <ng-template pTemplate>
 
+        <!-- Logged In -->
+        <div *ngIf="getIsUserLoggedIn" class="pt-1 profile">
+            <button pButton pRipple type="button" icon="pi pi-user" (click)="toggleProfileView()" class="p-button-rounded p-button-secondary p-button-outlined"></button>
+        </div>
+
         <!-- Ad Banner -->
-        <p-carousel [value]="advertisements">
+        <p-carousel [value]="advertisements" [numVisible]="1">
             <ng-template let-advertice pTemplate="item">
                 <div class="product-item">
                     <div>
                         <div>
-                            <p-image [src]="advertice.imageSource" alt="Image" width="250" (click)="onAdvertiseClick(advertice.url)" class="pb-2" imageClass="border-round-lg"></p-image>
+                            <p-image [src]="advertice.imageSource" alt="Image" width="250" (click)="onAdvertiseClick(advertice.url)" imageClass="border-round-lg cursor-pointer"></p-image>
                         </div>
                     </div>
                 </div>
             </ng-template>
         </p-carousel>
-       
-        <br>
 
+        <!-- Logged In -->
         <div *ngIf="getIsUserLoggedIn" class="pt-1">
-          
+            <button pButton pRipple type="button" icon="pi pi-thumbs-up-fill" class="p-button-rounded p-button-outlined p-button-success mr-1"></button>
+            <button pButton pRipple type="button" icon="pi pi-thumbs-down-fill" class="p-button-rounded p-button-outlined p-button-danger"></button>
         </div>
+        <br>
 
         <p id="notification"></p>
 
@@ -71,15 +77,42 @@
           </div>
           <br>
 
-          <label>Tags:</label>
+          <label style="text-align: left !important;">Tags:</label>
           <br>
           <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" styleClass="pt-1 mb-2 flex-column"></p-chips>
           <br>
+            
+          <button pButton pRipple type="button" label="Tech" class="p-button-info"></button>
+          <button pButton pRipple type="button" label="Fitness" class="p-button-warning"></button>
+          <button pButton pRipple type="button" label="Clothing" class="p-button-help"></button>
+          <button pButton pRipple type="button" label="Gaming" class="p-button-danger"></button>
+          <button pButton pRipple type="button" label="Cars" class="p-button-secondary"></button>
 
           <div style="text-align:center">
-            <button pButton pRipple label="Register" (click)="login()" type="button" class="mr-3 p-button-raised"></button>
+            <button pButton pRipple label="Register" (click)="register()" type="button" class="mr-3 p-button-raised"></button>
             <button pButton pRipple label="Cancel" (click)="showHomeView()" type="button" class="p-button-outlined"></button>
           </div>
+        </div>
+
+        <!-- Profile View -->
+        <div *ngIf="isUserLoggedIn && isUserProfileView">
+            <p class="pb-1">Hello, admin</p>
+
+            <app-user-profile></app-user-profile>
+            <br>
+
+            <label>Tags:</label>
+            <br>
+            <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" styleClass="pt-1 mb-4 flex-column"></p-chips>
+
+            <button pButton pRipple type="button" (click)="addTag('Tech')" label="Tech" class="p-button-info m-1"></button>
+            <button pButton pRipple type="button" (click)="addTag('Fitness')" label="Fitness" class="p-button-warning m-1"></button>
+            <button pButton pRipple type="button" (click)="addTag('Clothing')" label="Clothing" class="p-button-help m-1"></button>
+            <button pButton pRipple type="button" (click)="addTag('Gaming')" label="Gaming" class="p-button-danger m-1"></button>
+            <button pButton pRipple type="button" (click)="addTag('Cars')" label="Cars" class="p-button-secondary m-1"></button> 
+
+            <br><br>    
+            <button pButton pRipple label="Log Out" (click)="logout()" type="button" class="mt-2 p-button-raised p-button-danger p-button-text"></button>
         </div>
 
       </ng-template>

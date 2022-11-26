@@ -5,11 +5,25 @@
     right: 2%;
 }
 
-.overlayClass {
-    width: 295px;
-    max-width: 295px;
-}
-
 ::ng-deep .p-overlaypanel .p-overlaypanel-content {
     max-width: 390px !important;
+    z-index: 99999999;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+::ng-deep .p-chips {
+    width: 330px;
+    max-width: 330px;
+}
+
+.profile {
+    position: fixed;
+    top: 2%;
+    right: 3%;
+}
+
+.pointer {
+    cursor: pointer;
 }
