@@ -137,6 +137,7 @@ export class AppComponent {
     localStorage.clear();
     this.isUserLoggedIn = false;
     this.isLoginView = false;
+    this.isRegisterView = false;
 
     (document.getElementById('notification') as HTMLFormElement).style.display="block";
     (document.getElementById('notification') as HTMLFormElement).style.color = "red";
