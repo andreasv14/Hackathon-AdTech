@@ -1,7 +1,7 @@
 .bellButton {
     position: fixed;
     z-index: 999999;
-    top: 2%;
+    top: 11%;
     right: 2%;
 }
 
@@ -27,3 +27,17 @@
 .pointer {
     cursor: pointer;
 }
+
+.not-badge {
+    position: absolute;
+    right: -20%;
+    top: -20%;
+}
+
+.glassClass {
+    margin-left: 250px;
+}
+
+::ng-deep #isPersonalizedAds .p-inputswitch-checked .p-inputswitch-slider {
+    background-color: green;
+  }

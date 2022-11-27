@@ -14,6 +14,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {CarouselModule} from 'primeng/carousel';
 import { ChipsModule } from "primeng/chips";
+import {MenubarModule} from 'primeng/menubar';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ChipsModule } from "primeng/chips";
     CheckboxModule,
     ProgressBarModule,
     CarouselModule,
-    ChipsModule
+    ChipsModule,
+    MenubarModule,
+    InputSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

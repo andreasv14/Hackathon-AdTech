@@ -1,8 +1,15 @@
-<div class="grid grid-nogutter surface-section text-800">
+<p-menubar [model]="items" styleClass="surface-200"></p-menubar>
+
+<div class="grid grid-nogutter surface-section text-800 mb-2">
   <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
 
-    <button pButton pRipple type="button" (click)="op.show($event)" icon="pi pi-bell" class="bellButton p-button-rounded p-button-warning"></button>
-    
+    <div class="bellButton">
+        <button pButton pRipple type="button" (click)="op.show($event)" icon="pi pi-bell" badgeClass="p-badge-danger" value="3" class="p-button-rounded p-button-warning"></button>
+        <span class="not-badge p-badge p-badge-danger">
+            {{ '3' }}
+        </span>
+    </div>
+
     <p-overlayPanel #op [dismissable]="true">
       <ng-template pTemplate>
 
@@ -79,16 +86,16 @@
 
           <label style="text-align: left !important;">Tags:</label>
           <br>
-          <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" styleClass="pt-1 mb-2 flex-column"></p-chips>
+          <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" [allowDuplicate]="false" styleClass="pt-1 mb-4 flex-column"></p-chips>
           <br>
-            
-          <button pButton pRipple type="button" label="Tech" class="p-button-info"></button>
-          <button pButton pRipple type="button" label="Fitness" class="p-button-warning"></button>
-          <button pButton pRipple type="button" label="Clothing" class="p-button-help"></button>
-          <button pButton pRipple type="button" label="Gaming" class="p-button-danger"></button>
-          <button pButton pRipple type="button" label="Cars" class="p-button-secondary"></button>
 
-          <div style="text-align:center">
+          <button pButton pRipple type="button" (click)="addTag('Tech')" label="Tech" class="p-button-info m-1"></button>
+          <button pButton pRipple type="button" (click)="addTag('Fitness')" label="Fitness" class="p-button-warning m-1"></button>
+          <button pButton pRipple type="button" (click)="addTag('Clothing')" label="Clothing" class="p-button-help m-1"></button>
+          <button pButton pRipple type="button" (click)="addTag('Gaming')" label="Gaming" class="p-button-danger m-1"></button>
+          <button pButton pRipple type="button" (click)="addTag('Cars')" label="Cars" class="p-button-secondary m-1"></button> 
+
+          <div class="mt-4" style="text-align:center">
             <button pButton pRipple label="Register" (click)="register()" type="button" class="mr-3 p-button-raised"></button>
             <button pButton pRipple label="Cancel" (click)="showHomeView()" type="button" class="p-button-outlined"></button>
           </div>
@@ -103,7 +110,7 @@
 
             <label>Tags:</label>
             <br>
-            <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" styleClass="pt-1 mb-4 flex-column"></p-chips>
+            <p-chips [(ngModel)]="tags" inputStyleClass="chipClass" [allowDuplicate]="false"     styleClass="pt-1 mb-4 flex-column"></p-chips>
 
             <button pButton pRipple type="button" (click)="addTag('Tech')" label="Tech" class="p-button-info m-1"></button>
             <button pButton pRipple type="button" (click)="addTag('Fitness')" label="Fitness" class="p-button-warning m-1"></button>
@@ -111,7 +118,17 @@
             <button pButton pRipple type="button" (click)="addTag('Gaming')" label="Gaming" class="p-button-danger m-1"></button>
             <button pButton pRipple type="button" (click)="addTag('Cars')" label="Cars" class="p-button-secondary m-1"></button> 
 
-            <br><br>    
+            <br><br>   
+            <div class="p-field-checkbox mt-2 ml-4" style="text-align:start">
+                <p-inputSwitch id="isDataSharing" [(ngModel)]="isDataSharing"></p-inputSwitch>
+                <label class="ml-2 pb-2 vertical-align-top" for="isDataSharing">Allow Data Sharing</label>
+            </div>
+
+            <div class="p-field-checkbox mt-2 ml-4" style="text-align:start">
+                <p-inputSwitch id="isPersonalizedAds" [(ngModel)]="isPersonalizedAds"></p-inputSwitch>
+                <label class="ml-2 pb-2 vertical-align-top" for="isPersonalizedAds">Show Personalized Ads</label>
+            </div>
+ 
             <button pButton pRipple label="Log Out" (click)="logout()" type="button" class="mt-2 p-button-raised p-button-danger p-button-text"></button>
         </div>
 
@@ -121,14 +138,14 @@
     <section>
         <span class="block text-6xl font-bold mb-1">Create the screens your</span>
         <div class="text-6xl text-primary font-bold mb-3">your visitors deserve to see</div>
-        <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="mr-4 mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         
         <button pButton pRipple label="Learn More" type="button" class="mr-3 p-button-raised"></button>
         <button pButton pRipple label="Live Demo" type="button" class="p-button-outlined"></button>
     </section>
   </div>
   <div class="col-12 md:col-6 overflow-hidden">
-      <img src="assets/images/hero-1.png" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+      <img src="assets/images/glass.png" alt="Image" class="mt-8 glassClass" width="400px" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
   </div>
 </div>
 

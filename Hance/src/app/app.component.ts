@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { UserData } from './models/userdata';
 import { Router } from '@angular/router';
 
@@ -15,20 +15,42 @@ interface Advertise {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Hance';
+  title = 'ShopComm';
   isLoginView = false;
   isRegisterView = false;
   isUserLoggedIn = false;
+  isDataSharing = false;
+  isPersonalizedAds = true;
   isUserProfileView = false;
   userData: UserData = new UserData;
   advertisements: Advertise[] = [];
   tags: string[] = [];
+  items: MenuItem[] = [];
 
   constructor(
     private primengConfig: PrimeNGConfig, 
     private router: Router,
     private cd: ChangeDetectorRef,
-    ) {}
+    ) {
+      this.items = [
+        {
+            label: 'Home',
+            icon: 'pi pi-fw pi-home'
+        },
+        {
+          label: 'Products',
+          icon: 'pi pi-shopping-cart'
+        },
+        {
+          label: 'Work',
+          icon: 'pi pi-tablet'
+        },
+        {
+          label: 'About Us',
+          icon: 'pi pi-fw pi-user'
+        }
+    ];
+    }
 
   get getIsLoginView() {
     return this.isLoginView;
@@ -136,7 +158,8 @@ export class AppComponent {
 
   addTag(tag: string) {
     this.tags.push(tag);
-    this.cd.detectChanges();
+
+    this.ngOnInit();
   }
 }
 
